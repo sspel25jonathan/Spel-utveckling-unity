@@ -8,6 +8,9 @@ public class first : MonoBehaviour
 
   
     public float playerspeeed = 5f;
+
+    public GameObject Bullet;
+    public float Playerhealth = 3f;
     void Start()
     {
         this.transform.position = new Vector3(0, -1, 0);
@@ -37,6 +40,12 @@ public class first : MonoBehaviour
             transform.Translate(Vector3.down * playerspeeed * Time.deltaTime);
         }
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+
+            Instantiate(Bullet, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
+        }
+
         if (transform.position.x <= -11)
         {
             transform.position = new Vector3(10.9f, transform.position.y, 0);
@@ -47,13 +56,14 @@ public class first : MonoBehaviour
         }
 
 
-          if (transform.position.y < -11)
+        if (transform.position.y < -11)
         {
-            transform.position = new Vector3(transform.position.x,10.9f,0);
+            transform.position = new Vector3(transform.position.x, 10.9f, 0);
         }
         if (transform.position.y >= 11)
         {
-            transform.position = new Vector3(transform.position.x, -10.9f,0);
+            transform.position = new Vector3(transform.position.x, -10.9f, 0);
         }
+        
     }
 }
