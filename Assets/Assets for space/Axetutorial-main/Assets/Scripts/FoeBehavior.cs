@@ -1,5 +1,6 @@
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class FoeBehavior : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class FoeBehavior : MonoBehaviour
     private float timeMove = 3;
     public int randomLeftRight = 0;
     float timer;
+
+    public scoreB scoreList;
 
 
     void Start()
@@ -51,11 +54,11 @@ public class FoeBehavior : MonoBehaviour
             if (enemyhp == 0)
             {
                 Destroy(gameObject);
+                scoreList.scoreAddPoint();
             }
         }
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Yo");
             Destroy(gameObject);
         }
 
