@@ -6,12 +6,15 @@ public class FoeBehavior : MonoBehaviour
 
     public GameObject enemy;
     public float enemyhp = 1f;
-    public float horizontalMovmet = 1f;
+    public float horizontalMovmet = 0f;
     public float eneymyShootCooldown = 1f;
     public float enemySpeed = 2f;
 
-    public float enemyMaxCount = 5;
     public float enemySpawnCooldown = 10;
+
+    private float timeMove = 3;
+    public int randomLeftRight = 0;
+    float timer;
 
 
     void Start()
@@ -22,17 +25,13 @@ public class FoeBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        float randomLeftRight = Random.Range(0, 1);
-        if (randomLeftRight == 1)
+        if (timer <= Time.time)
         {
-            transform.Translate(Vector3.left * horizontalMovmet  * Time.deltaTime * 3);
+            //Debug.Log("Code is running");
+            randomLeftRight = Random.Range(-1, 2);
+            timer = timeMove + Time.time;
         }
-        else if (randomLeftRight == 0)
-        {
-             transform.Translate(Vector3.right * horizontalMovmet * Time.deltaTime * 3);
-        }
-
+        transform.Translate(Vector3.right * enemySpeed* Time.deltaTime * randomLeftRight);
         transform.Translate(Vector3.down * enemySpeed * Time.deltaTime);
 
         if (transform.position.y < -11)
@@ -45,6 +44,7 @@ public class FoeBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.tag == "Player Bullet")
         {
             enemyhp = enemyhp - 1;
@@ -55,6 +55,7 @@ public class FoeBehavior : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("Yo");
             Destroy(gameObject);
         }
 

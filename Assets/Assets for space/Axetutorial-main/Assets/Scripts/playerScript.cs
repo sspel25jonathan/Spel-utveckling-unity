@@ -51,7 +51,7 @@ public class first : MonoBehaviour
             Instantiate(Bullet, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
             minTimer = Time.time + cooldown;
         }
-        Debug.Log("Time is:" + Time.time + " and CD is: " + minTimer);
+        //Debug.Log("Time is:" + Time.time + " and CD is: " + minTimer);
 
 
         if (transform.position.x <= -11)
@@ -74,7 +74,8 @@ public class first : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         if (collision.gameObject.tag == "Enemy")
         {
             Playerhealth = Playerhealth - 1;
@@ -82,7 +83,18 @@ public class first : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+
+        }
+        if (collision.gameObject.tag == "Big Enemy")
+        {
+            Playerhealth = Playerhealth - 2;
+            if (Playerhealth == 0)
+            {
+                Destroy(gameObject);
             }
+
+        }
+        
          }
 
 }
