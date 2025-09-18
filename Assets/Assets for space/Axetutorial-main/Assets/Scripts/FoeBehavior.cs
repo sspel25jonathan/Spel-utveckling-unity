@@ -16,8 +16,9 @@ public class FoeBehavior : MonoBehaviour
     private float timeMove = 3;
     public int randomLeftRight = 0;
     float timer;
+    
 
-    public scoreB scoreList;
+    
 
 
     void Start()
@@ -54,7 +55,7 @@ public class FoeBehavior : MonoBehaviour
             if (enemyhp == 0)
             {
                 Destroy(gameObject);
-                scoreList.scoreAddPoint();
+                scoreB.instance.scoreAddPoint();
             }
         }
         if (collision.gameObject.tag == "Player")

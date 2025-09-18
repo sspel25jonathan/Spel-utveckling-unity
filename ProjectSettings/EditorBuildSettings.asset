@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Assets for space/Axetutorial-main/Assets/Scenes/HuvudScene.unity
+    guid: c0652b725a31acd41a3d8b3c8ae57c29
+  - enabled: 1
+    path: Assets/Assets for space/Axetutorial-main/Assets/Scenes/InGameScene.unity
+    guid: 6f9bf30e797f2cb4599458bc72557901
+  - enabled: 1
+    path: Assets/Assets for space/Axetutorial-main/Assets/Scenes/Setttings.unity
+    guid: 289a8a1bd0d7e65468fd282abaf1a0d7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

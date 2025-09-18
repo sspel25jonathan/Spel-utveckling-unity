@@ -26,6 +26,7 @@ public class FoeSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (timer <= Time.time)
         {
             Vector2 spawnLocation = new Vector2(Random.Range(minusX, plusX), 11);
