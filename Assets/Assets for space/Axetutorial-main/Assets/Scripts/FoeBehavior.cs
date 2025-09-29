@@ -16,9 +16,9 @@ public class FoeBehavior : MonoBehaviour
     private float timeMove = 3;
     public int randomLeftRight = 0;
     float timer;
-    
 
-    
+
+
 
 
     void Start()
@@ -35,7 +35,7 @@ public class FoeBehavior : MonoBehaviour
             randomLeftRight = Random.Range(-1, 2);
             timer = timeMove + Time.time;
         }
-        transform.Translate(Vector3.right * enemySpeed* Time.deltaTime * randomLeftRight);
+        transform.Translate(Vector3.right * enemySpeed * Time.deltaTime * randomLeftRight);
         transform.Translate(Vector3.down * enemySpeed * Time.deltaTime);
 
         if (transform.position.y < -11)
@@ -46,16 +46,16 @@ public class FoeBehavior : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        
+
         if (collision.gameObject.tag == "Player Bullet")
         {
             enemyhp = enemyhp - 1;
             if (enemyhp == 0)
             {
                 Destroy(gameObject);
-                scoreB.instance.scoreAddPoint();
+                scoreB.instance.ScoreAddPoint();
             }
         }
         if (collision.gameObject.tag == "Player")
@@ -63,5 +63,10 @@ public class FoeBehavior : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    void Awake()
+    {
+        
     }
 }

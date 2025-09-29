@@ -11,16 +11,21 @@ public class scoreB : MonoBehaviour
 
     int scoreS = 0;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-void Start()
+    void Start()
     {
         scoreS += 1;
         score.text = scoreS.ToString() + " Points";
     }
     // Update is called once per frame
-    public void scoreAddPoint()
+    public void ScoreAddPoint()
     {
-        scoreS += 1;
+        scoreS = scoreS + 1;
         score.text = scoreS.ToString() + " Points";
     }
 }

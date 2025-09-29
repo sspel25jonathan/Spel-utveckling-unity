@@ -10,7 +10,7 @@ public class first : MonoBehaviour
     public float playerspeeed = 5f;
 
     public GameObject Bullet;
-    public float Playerhealth = 3f;
+    
     float minTimer;
 
     public float cooldown = 2f;
@@ -74,27 +74,6 @@ public class first : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Playerhealth = Playerhealth - 1;
-            if (Playerhealth == 0)
-            {
-                Destroy(gameObject);
-            }
 
-        }
-        if (collision.gameObject.tag == "Big Enemy")
-        {
-            Playerhealth = Playerhealth - 2;
-            if (Playerhealth == 0)
-            {
-                Destroy(gameObject);
-            }
-
-        }
-        
-         }
 
 }
